@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"stash_config",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"stash_config",
+  "parent":{
+    "name":"config",
+    "path":"folders/Scripts/Stash/config.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

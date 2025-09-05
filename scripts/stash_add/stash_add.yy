@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"stash_add",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"stash_add",
+  "parent":{
+    "name":"functions",
+    "path":"folders/Scripts/Stash/functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

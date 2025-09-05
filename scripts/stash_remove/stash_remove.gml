@@ -1,0 +1,23 @@
+function stash_remove(_stash, _item, _quantity, _pack = STASH_DEFAULT_PACK) {
+
+	if(is_undefined(_item) || _quantity <= 0) { return 0; }
+
+	var _remaining = _quantity;
+		
+	var _i = array_length(_stash) - 1; 
+	repeat(array_length(_stash)) {
+		if(_remaining <= 0) { break; }
+		
+		var _stack = _stash[_i];
+		var _removed = _stack.remove(_remaining, _item);
+		
+		if(_removed > 0) {
+			_remaining -= _removed;
+			if(_pack && _stack.is_empty()) array_delete(_stash, _i, 1);
+		}	
+		--_i;
+	}
+
+	return _quantity - _remaining;
+
+}

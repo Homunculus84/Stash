@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ListItemAdapter",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ListItemAdapter",
+  "parent":{
+    "name":"List",
+    "path":"folders/Scripts/Demo/List.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

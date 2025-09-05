@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"stash_sort",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"stash_sort",
+  "parent":{
+    "name":"functions",
+    "path":"folders/Scripts/Stash/functions.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

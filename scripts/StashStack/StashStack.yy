@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"StashStack",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"StashStack",
+  "parent":{
+    "name":"classes",
+    "path":"folders/Scripts/Stash/classes.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
