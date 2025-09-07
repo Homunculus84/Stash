@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"items_db",
+  "%Name":"stash_exists",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"items_db",
+  "name":"stash_exists",
   "parent":{
-    "name":"Demo",
-    "path":"folders/Scripts/Demo.yy",
+    "name":"functions",
+    "path":"folders/Scripts/Stash/functions.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

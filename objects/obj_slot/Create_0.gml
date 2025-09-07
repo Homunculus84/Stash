@@ -1,14 +1,16 @@
-stack = undefined;
-action_main = function() {};
-action_alt = function() {};
+inventory	= undefined;
+position	= undefined;
+stack		= undefined;
 
-function discard() {
-	stack.clear();	
+show_label	= false;
+
+clear = function() {
+	if(!is_undefined(stack)) { return; }
+	stack.clear();
 } 
 
-function rand() {
-	var _item_id = global.item_ids[irandom(array_length(global.item_ids) - 1)];
-	var _item = global.items[$ _item_id];
-	
-	stack.set(irandom_range(1, _item.stack_size), _item);
+remove = function(_amount = 1) {
+	if(!is_undefined(stack)) { return; }
+	return stack.remove(_amount);
 }
+

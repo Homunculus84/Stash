@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"ListItemAdapter",
+  "%Name":"stash_tidy",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"ListItemAdapter",
+  "name":"stash_tidy",
   "parent":{
-    "name":"Demo",
-    "path":"folders/Scripts/Demo.yy",
+    "name":"functions",
+    "path":"folders/Scripts/Stash/functions.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

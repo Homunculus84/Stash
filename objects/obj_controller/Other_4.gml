@@ -1,5 +1,5 @@
-var _base_w = 256;
-var _base_h = 256;
+var _base_w = room_width;
+var _base_h = room_height;
 
 var _disp_w = display_get_width() * 0.8;
 var _disp_h = display_get_height() * 0.8;

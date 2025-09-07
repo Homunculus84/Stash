@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"stash_sort",
+  "%Name":"globals",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"stash_sort",
+  "name":"globals",
   "parent":{
-    "name":"functions",
-    "path":"folders/Scripts/Stash/functions.yy",
+    "name":"Demo",
+    "path":"folders/Scripts/Demo.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

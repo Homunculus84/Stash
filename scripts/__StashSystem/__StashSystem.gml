@@ -16,7 +16,7 @@ function __StashSystem() {
 	_system = {}
 	with(_system) {
 		__stash_trace($"Using Stash {STASH_VERSION} by Homunculus84");
-		__item_adapter	= new STASH_DEFAULT_ITEM_ADAPTER();
+		__adapter	= new STASH_DEFAULT_ITEM_ADAPTER();
 	}
 	
 	return _system;
