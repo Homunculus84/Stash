@@ -1,4 +1,4 @@
-function stash_remove(_stash, _item, _quantity, _pack = STASH_DEFAULT_PACK) {
+function stash_remove(_stash, _item, _quantity) {
 
 	if(is_undefined(_item) || _quantity <= 0) { return 0; }
 
@@ -13,7 +13,6 @@ function stash_remove(_stash, _item, _quantity, _pack = STASH_DEFAULT_PACK) {
 		
 		if(_removed > 0) {
 			_remaining -= _removed;
-			if(_pack && _stack.is_empty()) array_delete(_stash, _i, 1);
 		}	
 		--_i;
 	}

@@ -9,7 +9,7 @@ function StashItemAdapter() constructor {
 	}
 	
 	static stack_size = function(_item) {
-		return 99;
+		return _item.stack_size;
 	}
 	
 	static clone = function(_item) {
@@ -17,11 +17,11 @@ function StashItemAdapter() constructor {
 	}
 	
 	static serialize = function(_item) {
-		return _item;
+		return _item.id;
 	}
 	
-	static deserialize = function(_item) {
-		return _item;
+	static deserialize = function(_id) {
+		return global.items[$ _id];
 	}
 	
 }

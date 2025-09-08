@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"stash_serialize",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"stash_serialize",
+  "parent":{
+    "name":"Stash",
+    "path":"folders/Scripts/Stash.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

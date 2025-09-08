@@ -1,4 +1,5 @@
 #macro	STASH_VERSION			"1.0.0"
+#macro	STASH_SCHEMA_VERSION	1
 
 enum STASH_CONTEXT {
 	add,

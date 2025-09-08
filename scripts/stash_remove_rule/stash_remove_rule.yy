@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"stash_remove_rule",
   "parent":{
-    "name":"functions",
-    "path":"folders/Scripts/Stash/functions.yy",
+    "name":"Stash",
+    "path":"folders/Scripts/Stash.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

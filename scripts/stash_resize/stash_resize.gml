@@ -1,6 +1,4 @@
-function stash_resize(_stash, _new_size, _template = undefined) {
-
-	_template ??= new StashStack();
+function stash_resize(_stash, _new_size, _template =  new StashStack()) {
 	__stash_assert_is_stack(_template);
 
 	var _old_size = array_length(_stash);
@@ -10,7 +8,9 @@ function stash_resize(_stash, _new_size, _template = undefined) {
 	if(_new_size > _old_size) {
 		var _i = _old_size;
 		repeat(_new_size - _old_size) {
-			_stash[_i] = _template.clone();
+			var _stack = _template.clone();
+			_stash[_i] = _stack;
+			_stack.trigger("create");
 			++_i;
 		}
 	}

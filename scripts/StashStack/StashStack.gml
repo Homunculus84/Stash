@@ -1,66 +1,54 @@
-function StashStack(_item = undefined, _quantity = 1, _events = {}, _rules = {}) constructor {
+function StashStack(_item = undefined, _quantity = 1, _rules = {}, _events = {}) constructor {
 
 	static __system	= __StashSystem();
 	static __noop	= function() {};
-
+	
 	__rules		= {};
-	__events	= { create: __noop, update: __noop };
+	__events	= { create: __noop, update: __noop, clear: __noop };
 
 	item		= undefined;
 	quantity	= 0;
 
 	#region Private
 	
-	static __bind_events = function(_events) {
-		if(!is_struct(_events)) { __stash_error("Events should be a struct"); }
-		
-		var _event_names = struct_get_names(_events);
-		var _i = 0; repeat(array_length(_event_names)) {
-			var _event_name = _event_names[_i];
-			var _event = _events[$ _event_name];
+	static __bind_callbacks = function(_callbacks, _fn) {
+		var _callback_names = struct_get_names(_callbacks);
+		var _i = 0; repeat(array_length(_callback_names)) {
+			var _callback_name = _callback_names[_i];
+			var _callback = _callbacks[$ _callback_name];
 			
-			if(is_callable(_event)) {
-				on(_event_name, _event);
+			if(is_callable(_callback)) {
+				_fn(_callback_name, _callback);
 			}
-			else if(is_struct(_event)) {
-				on(_event_name, _event.fn, _event.context);
+			else if(is_struct(_callback)) {
+				_fn(_callback_name, _callback.fn, _callback.context);
 			}
 			else {
-				__stash_error("Invalid event");
+				__stash_error("Invalid callback");
 			}
 			
 			++_i;
 		}
 	}
 	
+	static __bind_events = function(_events) {
+		if(!is_struct(_events)) { __stash_error("Events should be a struct"); }
+		__bind_callbacks(_events, on);
+	}
+		
 	static __bind_rules = function(_rules) {
 		if(!is_struct(_rules)) { __stash_error("Rules should be a struct"); }
-		
-		var _rule_names = struct_get_names(_rules);
-		var _i = 0; repeat(array_length(_rule_names)) {
-			var _rule_name = _rule_names[_i];
-			var _rule = _rules[$ _rule_name];
-			
-			if(is_callable(_rule)) {
-				add_rule(_rule_name, _rule);
-			}
-			else if(is_struct(_rule)) {
-				add_rule(_rule_name, _rule.fn, _rule.context);
-			}
-			else {
-				__stash_error("Invalid rule");
-			}
-			++_i;
-		}
+		__bind_callbacks(_rules, add_rule);
 	}
 	
 	#endregion
 
-	#region	Public core
+	#region	Core methods
 	
 	static add = function(_quantity, _item = undefined) {
 		if(_quantity <= 0) { return 0; }
 		
+		// If an item is specified, insert or reject
 		if(!is_undefined(_item)) {
 			if(!accepts(_item)) { return 0; }
 			if(is_undefined(item) && allows(_item)) {
@@ -68,13 +56,13 @@ function StashStack(_item = undefined, _quantity = 1, _events = {}, _rules = {})
 			}
 		}
 		
+		// If item is still undefined, return
 		if(is_undefined(item)) { return 0; }
 
 		var _amount = max(0, min(_quantity, __system.__adapter.stack_size(item) - quantity));
 		quantity += _amount;
 
 		if(_amount > 0 ) { trigger("update"); }
-		
 		return _amount;
 	}
 	
@@ -84,12 +72,13 @@ function StashStack(_item = undefined, _quantity = 1, _events = {}, _rules = {})
 		item = undefined;
 		quantity = 0;
 		
-		if(!_was_empty) { trigger("update"); }
+		if(!_was_empty) { trigger("clear"); }
 	}
 	
 	static remove = function(_quantity, _item = undefined) {
 		if(_quantity <= 0 || is_undefined(item)) { return 0; }
 		
+		// Slot contains a different item than provided
 		if(!is_undefined(_item) && !__system.__adapter.equals(item, _item)) {
 			return 0;
 		}
@@ -124,7 +113,7 @@ function StashStack(_item = undefined, _quantity = 1, _events = {}, _rules = {})
 	
 	#endregion
 	
-	#region Public helpers
+	#region Utility helpers
 	
 	static add_rule = function(_name, _fn, _context) {
 		__rules[$ _name] = is_undefined(_context) ? _fn : method(_context, _fn);
@@ -151,11 +140,12 @@ function StashStack(_item = undefined, _quantity = 1, _events = {}, _rules = {})
 		__rules = {};
 	}
 	
-	static clone = function() {
-		return new StashStack(
-			is_undefined(item) ? undefined : __system.__adapter.clone(item), 
-			quantity, __events, __rules
-		);
+	static clone = function(_quantity = quantity, _item = item) {
+		return new StashStack(_item, _quantity, __rules, __events);
+	}
+	
+	static deserialize = function(_data) {
+		set(_data.quantity, __system.__adapter.deserialize(_data.item));
 	}
 	
 	static is_empty = function() {
@@ -178,9 +168,7 @@ function StashStack(_item = undefined, _quantity = 1, _events = {}, _rules = {})
 	}
 	
 	static on = function(_event, _fn, _context = undefined) {
-		_fn = is_undefined(_context) ? _fn : method(_context, _fn);	
-		__events[$ _event] = _fn;
-		
+		__events[$ _event] = is_undefined(_context) ? _fn : method(_context, _fn);
 		return self;
 	}
 	
@@ -218,12 +206,10 @@ function StashStack(_item = undefined, _quantity = 1, _events = {}, _rules = {})
 	__bind_rules(_rules);
 
 	if(!is_undefined(_item)) {
-		set(_item, _quantity);
+		set(_quantity, _item);
 	}
 	
 	__bind_events(_events);
-
-	trigger("create");
 	
 	#endregion
 
