@@ -1,4 +1,10 @@
-function stash_add(_stash, _item, _quantity) {
+// Feather disable all
+
+/// @param stash
+/// @param quantity
+/// @param item
+
+function stash_add(_stash, _quantity, _item) {
 	
 	var _remaining = _quantity;
 	var _i;

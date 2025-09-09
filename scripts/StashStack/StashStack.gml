@@ -1,4 +1,38 @@
-function StashStack(_item = undefined, _quantity = 1, _rules = {}, _events = {}) constructor {
+///	Constructor that creates a new instance of a Binder
+///
+///	@param {real}	[_quantity]
+///	@param {any}	[_item]
+///	@param {struct}	[_rules]
+/// @param {struct}	[_events]
+///
+///	*** Public variables
+/// 
+///	item									READ ONLY! Item stored in the stack (undefined if stack is empty)
+/// quantity								READ ONLY! Amount (0 if stack is empty)
+///
+///	*** Public methods
+///	
+///	add(quantity, [item])
+/// add_rule(name, fn, [context])
+/// allows(item)
+/// accepts(item)
+/// clear()
+/// clear_rules()
+/// clone([quantity], [item])
+/// deserialize(data)
+/// is_empty()
+/// is_full()
+/// item_stacks_with(item)
+/// item_equals(item)
+/// on(event, fn, [context])
+/// remove(quantity, [item])
+/// remove_rule(name)
+/// serialize()
+/// set(quantity, [item])
+/// trigger(event)
+
+
+function StashStack(_quantity = 1, _item = undefined, _rules = {}, _events = {}) constructor {
 
 	static __system	= __StashSystem();
 	static __noop	= function() {};
@@ -141,7 +175,7 @@ function StashStack(_item = undefined, _quantity = 1, _rules = {}, _events = {})
 	}
 	
 	static clone = function(_quantity = quantity, _item = item) {
-		return new StashStack(_item, _quantity, __rules, __events);
+		return new StashStack(_quantity, _item, __rules, __events);
 	}
 	
 	static deserialize = function(_data) {
@@ -153,7 +187,7 @@ function StashStack(_item = undefined, _quantity = 1, _rules = {}, _events = {})
 	}
 	
 	static is_full = function() {
-		return quantity >= __system.__adapter.stack_size(item);
+		return !is_undefined(item) && quantity >= __system.__adapter.stack_size(item);
 	}
 	
 	static item_stacks_with = function(_item) {

@@ -1,3 +1,7 @@
+// Feather disable all
+
+/// @param stash
+
 function stash_size(_stash) {
 
 	var _count = 0;

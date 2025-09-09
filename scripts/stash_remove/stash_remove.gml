@@ -1,3 +1,9 @@
+// Feather disable all
+
+/// @param stash
+/// @param item
+/// @param quantity
+
 function stash_remove(_stash, _item, _quantity) {
 
 	if(is_undefined(_item) || _quantity <= 0) { return 0; }

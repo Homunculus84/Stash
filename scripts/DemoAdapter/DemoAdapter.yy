@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"StashItemAdapter",
+  "%Name":"DemoAdapter",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"StashItemAdapter",
+  "name":"DemoAdapter",
   "parent":{
-    "name":"config",
-    "path":"folders/Scripts/Stash/config.yy",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

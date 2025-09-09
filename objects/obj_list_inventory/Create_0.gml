@@ -4,12 +4,12 @@ event_inherited();
 #region	Methods
 
 // Limit each item to a single stack
-add = function(_item, _quantity) { 
+add = function(_quantity, _item) { 
 	var _stack_index = stash_find(stash, _item);
 	
 	// If item exists, try adding
 	if(_stack_index >= 0) {
-		return stash_add(stash, _item, _quantity);
+		return stash_add(stash, _quantity, _item);
 	}
 	// If not, try creating a new stack
 	else if(array_length(stash) < max_size) {

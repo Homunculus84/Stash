@@ -1,3 +1,7 @@
+// Feather disable all
+
+/// @param stash
+
 function stash_pack(_stash) {
 
 	var _i = array_length(_stash) - 1;

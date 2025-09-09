@@ -1,3 +1,8 @@
+// Feather disable all
+
+/// @param stash
+/// @param item
+
 function stash_find(_stash, _item) {
 	
 	var _index = -1;

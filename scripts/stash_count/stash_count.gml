@@ -1,3 +1,8 @@
+// Feather disable all
+
+/// @param stash
+/// @param [item]
+
 function stash_count(_stash, _item = undefined) {
 	
 	var _count = 0;

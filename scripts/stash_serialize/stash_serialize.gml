@@ -1,3 +1,7 @@
+// Feather disable all
+
+/// @param stash
+
 function stash_serialize(_stash) {
 
 	var _serialized = {

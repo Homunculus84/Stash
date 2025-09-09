@@ -1,3 +1,9 @@
+// Feather disable all
+
+/// @param stash
+/// @param new_size
+/// @param [template]
+
 function stash_resize(_stash, _new_size, _template =  new StashStack()) {
 	__stash_assert_is_stack(_template);
 

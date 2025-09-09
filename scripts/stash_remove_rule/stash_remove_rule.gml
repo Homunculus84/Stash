@@ -1,3 +1,8 @@
+// Feather disable all
+
+/// @param stash
+/// @param name
+
 function stash_remove_rule(_stash, _name) {
 	
 	var _i = 0; repeat(array_length(_stash)) {

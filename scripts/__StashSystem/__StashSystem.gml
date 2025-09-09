@@ -1,13 +1,6 @@
 #macro	STASH_VERSION			"1.0.0"
 #macro	STASH_SCHEMA_VERSION	1
 
-enum STASH_CONTEXT {
-	add,
-	clear,
-	count,
-	remove
-}
-
 __StashSystem();
 
 function __StashSystem() {
@@ -17,7 +10,7 @@ function __StashSystem() {
 	_system = {}
 	with(_system) {
 		__stash_trace($"Using Stash {STASH_VERSION} by Homunculus84");
-		__adapter	= new STASH_DEFAULT_ITEM_ADAPTER();
+		__adapter	= new STASH_ITEM_ADAPTER();
 	}
 	
 	return _system;

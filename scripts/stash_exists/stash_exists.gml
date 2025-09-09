@@ -1,3 +1,8 @@
+// Feather disable all
+
+/// @param stash
+/// @param item
+
 function stash_exists(_stash, _item) {
 
 	var _i = 0; repeat(array_length(_stash)) {

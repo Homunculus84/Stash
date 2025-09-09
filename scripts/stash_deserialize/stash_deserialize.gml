@@ -1,3 +1,8 @@
+// Feather disable all
+
+/// @param serialized
+/// @param [template]
+
 function stash_deserialize(_serialized, _template = new StashStack()) {
 	__stash_assert_is_stack(_template);
 

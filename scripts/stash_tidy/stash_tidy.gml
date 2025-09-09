@@ -1,3 +1,8 @@
+// Feather disable all
+
+/// @param stash
+
+
 function stash_tidy(_stash) {
 	
 	var _i = 0; repeat(array_length(_stash)) {
