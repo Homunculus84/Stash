@@ -11,11 +11,11 @@ In this setup, an inventory is simply a regular array of `StashStacks`, hereafte
 
 ## Features
 
-- **Generic** – Does not enforce any specific item or inventory structure. Items can be strings, numbers, structs, or any custom type.
-- **Lightweight** – An inventory is just a simple array of stacks. No extra overhead; you can loop, sort, or reorganize it easily.
-- **Utility functions** – Manage your Stash array with a variety of helper functions for searching, sorting, or counting items.
+- **Generic** – Does not enforce what an item is or how it is defined. Items can be strings, numbers, structs, or essentially anything.
+- **Lightweight** – An inventory is just a simple array of stacks. No extra overhead; you can loop, sort, or reorganize it by leveraging the standard array functions and expressions.
+- **Utility functions** – Manage your Stash array with a variety of helper functions for searching, sorting, counting and manage your inventory as a whole.
 - **Events & Callbacks** – Built-in events let you run custom code whenever a stack’s state changes.
-- **Custom rules** – Define rules for individual stacks or the entire inventory to control behavior and constraints.
+- **Custom rules** – Define rules for individual stacks or applied to the entire array of stacks to control behavior and constraints.
 
 ## Getting started
 
