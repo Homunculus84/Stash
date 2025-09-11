@@ -179,7 +179,9 @@ function StashStack(_quantity = 0, _item = undefined, _rules = {}, _events = {})
 	}
 	
 	static clone = function(_quantity = quantity, _item = item) {
-		return new StashStack(_quantity, _item, __rules, __events);
+		var _stack = new StashStack(_quantity, _item, __rules, __events);
+		_stack.trigger("create");
+		return _stack;
 	}
 	
 	static is_empty = function() {

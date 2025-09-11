@@ -16,7 +16,6 @@ function stash_resize(_stash, _new_size, _template =  new StashStack()) {
 		repeat(_new_size - _old_size) {
 			var _stack = _template.clone();
 			_stash[_i] = _stack;
-			_stack.trigger("create");
 			++_i;
 		}
 	}

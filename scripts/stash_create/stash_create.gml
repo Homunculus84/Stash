@@ -10,7 +10,6 @@ function stash_create(_size, _template = new StashStack()) {
 	var _i = 0; repeat(_size) {
 		var _stack = _template.clone();
 		_stash[_i] = _stack;
-		_stack.trigger("create");
 		++_i;
 	}
 

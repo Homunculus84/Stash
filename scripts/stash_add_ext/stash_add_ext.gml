@@ -19,7 +19,6 @@ function stash_add_ext(_stash, _quantity, _item, _max_size, _template = new Stas
 			var _stack = _template.clone(_remaining, _item);
 			_remaining -= _stack.quantity;
 			_stash[_size] = _stack;
-			_stack.trigger("create");
 		}
 		else {
 			break;
