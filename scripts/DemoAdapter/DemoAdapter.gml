@@ -21,15 +21,6 @@ function DemoAdapter() constructor {
         return _item;
     }
 
-
-    static serialize = function(_item) {
-        return _item.id;
-    }
-
-    static deserialize = function(_data) {
-        return global.items[$ _data];
-    }
-
 }
 
 /*

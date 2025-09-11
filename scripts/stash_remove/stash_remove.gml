@@ -4,7 +4,7 @@
 /// @param item
 /// @param quantity
 
-function stash_remove(_stash, _item, _quantity) {
+function stash_remove(_stash, _quantity, _item) {
 
 	if(is_undefined(_item) || _quantity <= 0) { return 0; }
 

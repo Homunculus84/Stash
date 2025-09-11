@@ -6,8 +6,6 @@ event_inherited();
 stash	= stash_create(4 * 8);
 cols	= 4;
 
-serialized = undefined;
-
 build();
 
 #endregion

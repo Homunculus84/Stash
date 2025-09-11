@@ -7,7 +7,7 @@ function stash_deserialize(_serialized, _template = new StashStack()) {
 	__stash_assert_is_stack(_template);
 
 	if (!is_struct(_serialized) || !struct_exists(_serialized, "schema_version")) {
-        __stash_error("Invalid inventory data");
+        __stash_error("Invalid stash data");
     }
 
 	var _stash;
@@ -36,3 +36,13 @@ function __stash_deserialize_1(_serialized, _template) {
 	
 	return _stash;
 }
+
+/*
+
+// Possible deserialize implementation for StashStack
+
+static deserialize = function(_data) {
+	set(_data.quantity, __system.__adapter.deserialize(_data.item));
+}
+
+*/

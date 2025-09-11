@@ -6,18 +6,5 @@ if(keyboard_check_pressed(ord("T"))) {
 
 // Display the inventory data in the console
 if(keyboard_check_pressed(ord("D"))) {
-	stash_debug(stash);
-}
-
-// Save the current state of the stash
-if(keyboard_check_pressed(ord("S"))) {
-	serialized = stash_serialize(stash);
-}
-
-// Load last saved state
-if(keyboard_check_pressed(ord("L"))) {
-	if(!is_undefined(serialized)) {
-		stash = stash_deserialize(serialized);
-		refresh();
-	}
+	stash_print(stash);
 }

@@ -2,7 +2,7 @@
 
 /// @param stash
 
-function stash_debug(_stash) {
+function stash_print(_stash) {
 
 	__stash_trace($"Size: {stash_size(stash)}, Total size: {array_length(stash)}, Items count: {stash_count(stash)}");
 

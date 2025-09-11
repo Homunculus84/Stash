@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"stash_serialize",
   "parent":{
-    "name":"Stash",
-    "path":"folders/Scripts/Stash.yy",
+    "name":"Discarded",
+    "path":"folders/Scripts/Discarded.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

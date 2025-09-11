@@ -14,25 +14,23 @@
 ///	
 ///	add(quantity, [item])
 /// add_rule(name, fn, [context])
-/// allows(item)
 /// accepts(item)
+/// allows(item)
 /// clear()
 /// clear_rules()
 /// clone([quantity], [item])
-/// deserialize(data)
 /// is_empty()
 /// is_full()
-/// item_stacks_with(item)
 /// item_equals(item)
+/// item_stacks_with(item)
 /// on(event, fn, [context])
 /// remove(quantity, [item])
 /// remove_rule(name)
-/// serialize()
 /// set(quantity, [item])
 /// trigger(event)
 
 
-function StashStack(_quantity = 1, _item = undefined, _rules = {}, _events = {}) constructor {
+function StashStack(_quantity = 0, _item = undefined, _rules = {}, _events = {}) constructor {
 
 	static __system	= __StashSystem();
 	static __noop	= function() {};
@@ -147,12 +145,18 @@ function StashStack(_quantity = 1, _item = undefined, _rules = {}, _events = {})
 	
 	#endregion
 	
-	#region Utility helpers
+	#region Utility methods
 	
 	static add_rule = function(_name, _fn, _context) {
 		__rules[$ _name] = is_undefined(_context) ? _fn : method(_context, _fn);
 		return self;
 	}
+	
+	static accepts = function(_item) {
+		if(is_undefined(_item)) { return false; }
+		if(is_undefined(item)) { return true; }
+		return __system.__adapter.stacks_with(item, _item);
+	} 
 	
 	static allows = function(_item) {
 		var _rule_names = struct_get_names(__rules);
@@ -164,22 +168,12 @@ function StashStack(_quantity = 1, _item = undefined, _rules = {}, _events = {})
 		return true;
 	}
 	
-	static accepts = function(_item) {
-		if(is_undefined(_item)) { return false; }
-		if(is_undefined(item)) { return true; }
-		return __system.__adapter.stacks_with(item, _item);
-	} 
-	
 	static clear_rules = function() {
 		__rules = {};
 	}
 	
 	static clone = function(_quantity = quantity, _item = item) {
 		return new StashStack(_quantity, _item, __rules, __events);
-	}
-	
-	static deserialize = function(_data) {
-		set(_data.quantity, __system.__adapter.deserialize(_data.item));
 	}
 	
 	static is_empty = function() {
@@ -190,15 +184,15 @@ function StashStack(_quantity = 1, _item = undefined, _rules = {}, _events = {})
 		return !is_undefined(item) && quantity >= __system.__adapter.stack_size(item);
 	}
 	
-	static item_stacks_with = function(_item) {
-		if(is_undefined(item) || is_undefined(_item)) { return false; }
-		return __system.__adapter.stacks_with(item, _item);
-	}
-	
 	static item_equals = function(_item) {
 		if(is_undefined(item) != is_undefined(_item)) { return false; }
 		if(is_undefined(item) && is_undefined(_item)) { return true; }
 		return __system.__adapter.equals(item, _item);
+	}
+	
+	static item_stacks_with = function(_item) {
+		if(is_undefined(item) || is_undefined(_item)) { return false; }
+		return __system.__adapter.stacks_with(item, _item);
 	}
 	
 	static on = function(_event, _fn, _context = undefined) {
@@ -211,14 +205,7 @@ function StashStack(_quantity = 1, _item = undefined, _rules = {}, _events = {})
 			struct_remove(__rules, _name);
 		}
 	}
-	
-	static serialize = function() {
-		return {
-			item: is_undefined(item) ? undefined : __system.__adapter.serialize(item),
-			quantity: quantity
-		};
-	}
-	
+		
 	static trigger = function(_event) {
 		if(struct_exists(__events, _event)) {
 			__events[$ _event](self);

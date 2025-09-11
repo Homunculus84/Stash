@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"stash_debug",
+  "%Name":"stash_print",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"stash_debug",
+  "name":"stash_print",
   "parent":{
     "name":"Stash",
     "path":"folders/Scripts/Stash.yy",

@@ -17,7 +17,7 @@ function StashBaseAdapter() constructor {
         In general, if your items are represented as strings, numbers, or immutable structs,
 		you can leave it as is.
     */
-    static equals = function(_item_a, _item_b) {
+    equals = function(_item_a, _item_b) {
         return _item_a == _item_b;
     }
 
@@ -28,7 +28,7 @@ function StashBaseAdapter() constructor {
 		
 		If your items are immutable, you can leave it as is.
     */
-    static stacks_with = function(_item_a, _item_b) {
+    stacks_with = function(_item_a, _item_b) {
         return _item_a == _item_b;
     }
 
@@ -43,8 +43,8 @@ function StashBaseAdapter() constructor {
 		return infinity;			// No limit to stack size
 		return _item.stack_size;	// Use a property of the item
     */
-    static stack_size = function(_item) {
-        return 99; //defaults to 99 for all items
+    stack_size = function(_item) {
+        return 64; //defaults to 99 for all items
     }
 
     /*
@@ -52,23 +52,8 @@ function StashBaseAdapter() constructor {
         If your items are mutable references, you should provide a copy using, for example, variable_clone.
 		Otherwise, you can safely return the item itself.
     */
-    static clone = function(_item) {
+    clone = function(_item) {
         return _item;
-    }
-
-    /*
-        Converts an item into a persistent format suitable for saving to disk or sending over
-        a network. Typically returns a simple numeric / string identifier or a serializable struct.
-    */
-    static serialize = function(_item) {
-        return _item;
-    }
-
-    /*
-        Converts a persistent representation of an item (as result of serialize()) back into a live item object.
-    */
-    static deserialize = function(_data) {
-        return _data;
     }
 
 }
