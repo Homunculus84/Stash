@@ -16,6 +16,7 @@
 /// add_rule(name, fn, [context])
 /// accepts(item)
 /// allows(item)
+/// capacity()
 /// clear()
 /// clear_rules()
 /// clone([quantity], [item])
@@ -166,6 +167,11 @@ function StashStack(_quantity = 0, _item = undefined, _rules = {}, _events = {})
 			++_i;
 		}
 		return true;
+	}
+	
+	static capacity = function() {
+		if(is_undefined(item)) { return undefined; }
+		return __system.__adapter.stack_size(item) - quantity;
 	}
 	
 	static clear_rules = function() {
