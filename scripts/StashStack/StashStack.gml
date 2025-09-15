@@ -17,11 +17,13 @@
 /// capacity()
 /// clear()
 /// clone([quantity], [item])
+/// deserialize(serialized_stack)
 /// empty()
 /// full()
 /// item_equals(item)
 /// item_stacks_with(item)
 /// remove(quantity, [item])
+/// serialize()
 /// set(quantity, [item])
 
 
