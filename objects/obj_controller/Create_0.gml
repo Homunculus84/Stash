@@ -41,5 +41,8 @@ draw_grid = function() {
 	draw_set_font(fnt_default);
 	draw_text_ext(144, 64, @"['M'] discard held item
 ['T'] tidy up inventory
+['S'] save inv. state
+['L'] load inv. state
+['D'] show debug info in the console
 ", -1, 92);
 }

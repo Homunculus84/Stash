@@ -4,7 +4,7 @@ draw_set_font(fnt_default);
 
 draw_sprite(sprite_index, 0, x, y);
 
-if(!stack.is_empty()) {
+if(!stack.empty()) {
 	draw_sprite(spr_items, stack.item.image_index, x, y);
 	
 	if(show_label) {

@@ -36,13 +36,3 @@ function __stash_deserialize_1(_serialized, _template) {
 	
 	return _stash;
 }
-
-/*
-
-// Possible deserialize implementation for StashStack
-
-static deserialize = function(_data) {
-	set(_data.quantity, __system.__adapter.deserialize(_data.item));
-}
-
-*/

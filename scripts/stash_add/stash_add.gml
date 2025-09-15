@@ -14,7 +14,7 @@ function stash_add(_stash, _quantity, _item) {
 		
 		var _stack = _stash[_i];
 		
-		if(!_stack.is_empty()) {
+		if(!_stack.empty()) {
 			_remaining -= _stack.add(_remaining, _item);
 		}
 		++_i;
@@ -25,7 +25,7 @@ function stash_add(_stash, _quantity, _item) {
 		
 		var _stack = _stash[_i];
 		
-		if(_stack.is_empty()) {
+		if(_stack.empty()) {
 			_remaining -= _stack.add(_remaining, _item);
 		}
 		++_i;

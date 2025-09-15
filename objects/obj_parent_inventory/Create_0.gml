@@ -40,7 +40,7 @@ build = function() {
 // Defines what happens by default when an inventory slot is left clicked (take all / drop all)
 slot_action_main = function(_slot) {
 	var _mouse_stack = obj_mouse.stack;
-	if(_mouse_stack.is_empty()) {
+	if(_mouse_stack.empty()) {
 		var _added = _mouse_stack.add(_slot.stack.quantity, _slot.stack.item);
 		_slot.stack.remove(_added);
 	}
@@ -53,7 +53,7 @@ slot_action_main = function(_slot) {
 // Defines what happens by default when an inventory slot is right clicked (take half / drop 1)
 slot_action_alt = function(_slot) {
 	var _mouse_stack = obj_mouse.stack;
-	if(_mouse_stack.is_empty()) {
+	if(_mouse_stack.empty()) {
 		var _added = _mouse_stack.add(_slot.stack.quantity div 2, _slot.stack.item);
 		_slot.stack.remove(_added);
 	}

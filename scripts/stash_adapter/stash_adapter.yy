@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"stash_serialize",
+  "%Name":"stash_adapter",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"stash_serialize",
+  "name":"stash_adapter",
   "parent":{
     "name":"Stash",
     "path":"folders/Scripts/Stash.yy",

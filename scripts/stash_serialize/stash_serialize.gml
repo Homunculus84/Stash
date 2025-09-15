@@ -22,16 +22,3 @@ function stash_serialize(_stash) {
 	return _serialized;
 
 }
-
-/*
-
-// Possible serialize implementation for StashStack
-
-static serialize = function() {
-	return {
-		item: is_undefined(item) ? undefined : __system.__adapter.serialize(item),
-		quantity: quantity
-	};
-}
-
-*/

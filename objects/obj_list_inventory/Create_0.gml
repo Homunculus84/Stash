@@ -14,7 +14,7 @@ add = function(_quantity, _item) {
 	// If not, try creating a new stack
 	else if(array_length(stash) < max_size) {
 		var _stack = template.clone(_quantity, _item);
-		if(!_stack.is_empty()) { 
+		if(!_stack.empty()) { 
 			array_push(stash,_stack); 
 			refresh();
 		}
@@ -28,14 +28,14 @@ add = function(_quantity, _item) {
 // Override default inventory left click action
 slot_action_main = function(_slot) {
 	var _mouse_stack = obj_mouse.stack;
-	if(!_mouse_stack.is_empty()) { return; }
+	if(!_mouse_stack.empty()) { return; }
 	_slot.stack.remove(1);
 }
 
 // Override default inventory right click action
 slot_action_alt = function(_slot) {
 	var _mouse_stack = obj_mouse.stack;
-	if(!_mouse_stack.is_empty()) { return; }
+	if(!_mouse_stack.empty()) { return; }
 	_slot.stack.clear();
 }
 
@@ -44,8 +44,8 @@ slot_action_alt = function(_slot) {
 #region Init
 
 // Define a reusable template to be used when creating new stacks
-template	= new StashStack().
-	on("clear", function(_stack) { stash_pack(stash); refresh(); }, self);
+template = new StashStack();
+template.events.register("clear", function(_stack) { stash_pack(stash); refresh(); }, self);
 
 max_size	= 8;
 labels		= true;

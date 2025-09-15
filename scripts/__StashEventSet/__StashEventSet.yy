@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"stash_serialize",
+  "%Name":"__StashEventSet",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"stash_serialize",
+  "name":"__StashEventSet",
   "parent":{
-    "name":"Stash",
-    "path":"folders/Scripts/Stash.yy",
+    "name":"__private",
+    "path":"folders/Scripts/Stash/__private.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

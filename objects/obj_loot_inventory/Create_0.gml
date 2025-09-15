@@ -15,9 +15,10 @@ randomize_item = function(_stack) {
 #region Init
 
 // Create a reusable slot template for the loot stacks
-var _template = new StashStack().
-	on("clear", randomize_item, self).
-	on("create", randomize_item, self);
+var _template = new StashStack();
+_template.events.
+	register("clear", randomize_item, self).
+	register("create", randomize_item, self);
 
 cols	= 4;
 stash	= stash_create(cols, _template);

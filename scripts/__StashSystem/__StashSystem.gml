@@ -1,4 +1,4 @@
-#macro	STASH_VERSION			"1.0.0"
+#macro	STASH_VERSION			"1.1.0"
 #macro	STASH_SCHEMA_VERSION	1
 
 __StashSystem();

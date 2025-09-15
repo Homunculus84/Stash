@@ -5,21 +5,30 @@
 
 function DemoAdapter() constructor {
 
-    static equals = function(_item_a, _item_b) {
-        return _item_a == _item_b;
+    static clone = function(_item) {
+        return _item;
     }
 
-    static stacks_with = function(_item_a, _item_b) {
+    static equals = function(_item_a, _item_b) {
         return _item_a == _item_b;
     }
 
     static stack_size = function(_item) {
         return _item.stack_size;
     }
-
-    static clone = function(_item) {
-        return _item;
+	
+	static stacks_with = function(_item_a, _item_b) {
+        return _item_a == _item_b;
     }
+	
+	static serialize = function(_item) {
+		return _item.id;
+	}
+	
+	static deserialize = function(_item_id) {
+		return global.items[$ _item_id];
+	}
+
 
 }
 
