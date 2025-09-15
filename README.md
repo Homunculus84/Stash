@@ -1,7 +1,3 @@
-# Early build! 
-
-The project is still under development, use at your own risk. 
-
 # Stash
 
 > A general purpose inventory system for Game Maker Studio 2.3+
@@ -25,3 +21,8 @@ In this setup, an inventory is simply a regular array of `StashStacks`, hereafte
 
 See the [Wiki](https://github.com/Homunculus84/Stash/wiki) for installation, usage examples, and API details.
 
+---
+
+<p align="center">
+  <img src="screenshot.png" alt="Diagram" width="480">
+</p>
