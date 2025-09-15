@@ -1,3 +1,7 @@
+# Early build! 
+
+The project is still under development, use at your own risk. 
+
 # Stash
 
 > A general purpose inventory system for Game Maker Studio 2.3+
